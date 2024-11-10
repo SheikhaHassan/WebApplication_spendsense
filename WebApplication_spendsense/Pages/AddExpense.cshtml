@@ -1,0 +1,83 @@
+﻿@page "/AddExpense"
+@model WebApplication_spendsense.Pages.AddExpenseModel
+@{
+    ViewData["Title"] = "Expense";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/css/login.css")" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+
+<div class="login-container d-flex align-items-center justify-content-center">
+    <div class="login-box">
+        <div class="text-center mb-9">
+         
+            <h3 class="login-title">Add Expense</h3>
+        </div>
+        <form method="post">
+            <!-- Expense Name Input Group -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-file-invoice"></i></span>
+                </div>
+                <input type="text" asp-for="Expense" class="form-control" placeholder="Expense Name" required>
+                <!--  <span class="text-danger" asp-validation-for="Expense"></span> -->
+            </div>
+
+            <!-- Amount Input Group -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <input type="number" asp-for="Amount" class="form-control" placeholder="Amount" required>
+                <!--  <span class="text-danger" asp-validation-for="Amount"></span> -->
+            </div>
+
+            <!-- Date Input Group -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <input type="date" asp-for="Date" class="form-control" required>
+                <!-- <span class="text-danger" asp-validation-for="Date"></span> -->
+            </div>
+
+            <!-- Category Input Group -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
+                </div>
+                <select asp-for="Category" class="form-control" asp-items="Model.Categories" required>
+                    <option value="">--Select a category--</option>
+                </select>
+                <!-- <span class="text-danger" asp-validation-for="Category"></span> -->
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block mt-3">Add</button>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </form>
+    </div>
+</div>
+
+@if (Model.IsSuccess)
+{
+    <div class="alert alert-success">
+        Expense added successfully!
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

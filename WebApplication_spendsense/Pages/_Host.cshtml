@@ -1,0 +1,30 @@
+﻿@page ""
+@namespace BudgetMangment.Pages
+@using WebApplication_spendsense.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blazor App</title>
+    <base href="~/" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="~/css/report-style.css" rel="stylesheet" /><!-- change//////////////  -->
+
+</head>
+
+<body>
+    <app>
+       
+        
+        <component type="typeof(Dashboard)" render-mode="ServerPrerendered" />
+        <!-- <component type="typeof(Report)" render-mode="ServerPrerendered" /> <!-- change//////////////  -->
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  height:100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: linear-gradient(to right, rgb(82, 109, 130), rgb(39, 55, 77));
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-content {
+    margin-bottom: 60px;
+    flex: 1;
+}
+
+.navbar-brand {
+    font-size: 40px;
+    color: white !important; /* Set the brand text color to white */
+    margin-left: 0px;
+}
+
+/* Change the color of nav-links to white */
+.navbar-nav .nav-link {
+    color: white !important; /* Override Bootstrap's text-dark */
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+/* Optional: Hover effect for nav-links */
+    .navbar-nav .nav-link:hover {
+        color: rgb(192, 209, 219); /* Link hover color */
+    }
+
+.logoMain {
+    width: 200px;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: rgb(157, 178, 191) !important; /* Change background color */
+    border-color: rgb(221, 230, 237) !important; /* Change border color */
+    color: white; /* Optional: Change text color for contrast */
+}
+
+    .btn-primary:hover {
+        background-color: rgb(192, 209, 219) !important; /* Optional: Hover color */
+        border-color: rgb(192, 209, 219) !important;
+    }
+
+
+.footer {
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    margin-top: 200px;
+   
+}
+
+
+    .footer-text {
+        font-size: 12px;
+    }

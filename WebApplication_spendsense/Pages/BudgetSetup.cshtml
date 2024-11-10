@@ -1,0 +1,96 @@
+﻿@page
+@using WebApplication_spendsense.Model
+@model WebApplication_spendsense.Pages.BudgetSetupModel
+@{
+    ViewData["Title"] = "Budget Setup";
+}
+
+<h2>Allocate Your Budget</h2>
+
+<div class="container">
+
+    <!-- Display any global error message -->
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="IncomeAmount" class="form-label">Total Income</label>
+            <input type="number" asp-for="IncomeAmount" class="form-control" />
+            <span asp-validation-for="IncomeAmount" class="text-danger"></span> <!-- Display validation errors for IncomeAmount -->
+        </div>
+
+        <button type="submit" asp-page-handler="Calculate" class="btn btn-primary">Calculate Allocations</button>
+    </form>
+
+    <hr />
+
+    <!-- Display recommended allocations based on 50/30/20 rule -->
+    <h3>Recommended Allocations</h3>
+    <p>Needs (50%): @Model.NeedsAllocation</p>
+    <p>Wants (30%): @Model.WantsAllocation</p>
+    <p>Savings (20%): @Model.SavingsAllocation</p>
+
+    <hr />
+
+    <!-- Input boxes for each budget category -->
+    <form method="post">
+        <div class="mb-3">
+            <label for="RentAmount" class="form-label">Rent</label>
+            <input type="number" asp-for="RentAmount" class="form-control" />
+            <span asp-validation-for="RentAmount" class="text-danger"></span> <!-- Validation for RentAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="GroceriesAmount" class="form-label">Groceries</label>
+            <input type="number" asp-for="GroceriesAmount" class="form-control" />
+            <span asp-validation-for="GroceriesAmount" class="text-danger"></span> <!-- Validation for GroceriesAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="GasAmount" class="form-label">Gas</label>
+            <input type="number" asp-for="GasAmount" class="form-control" />
+            <span asp-validation-for="GasAmount" class="text-danger"></span> <!-- Validation for GasAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="GymAmount" class="form-label">Gym</label>
+            <input type="number" asp-for="GymAmount" class="form-control" />
+            <span asp-validation-for="GymAmount" class="text-danger"></span> <!-- Validation for GymAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="RestaurantAmount" class="form-label">Restaurant</label>
+            <input type="number" asp-for="RestaurantAmount" class="form-control" />
+            <span asp-validation-for="RestaurantAmount" class="text-danger"></span> <!-- Validation for RestaurantAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="TravelAmount" class="form-label">Travel</label>
+            <input type="number" asp-for="TravelAmount" class="form-control" />
+            <span asp-validation-for="TravelAmount" class="text-danger"></span> <!-- Validation for TravelAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="VacationAmount" class="form-label">Vacation</label>
+            <input type="number" asp-for="VacationAmount" class="form-control" />
+            <span asp-validation-for="VacationAmount" class="text-danger"></span> <!-- Validation for VacationAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="GiftAmount" class="form-label">Gift</label>
+            <input type="number" asp-for="GiftAmount" class="form-control" />
+            <span asp-validation-for="GiftAmount" class="text-danger"></span> <!-- Validation for GiftAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="SavingsAmount" class="form-label">Savings</label>
+            <input type="number" asp-for="SavingsAmount" class="form-control" />
+            <span asp-validation-for="SavingsAmount" class="text-danger"></span> <!-- Validation for SavingsAmount -->
+        </div>
+        <div class="mb-3">
+            <label for="InvestmentsAmount" class="form-label">Investments</label>
+            <input type="number" asp-for="InvestmentsAmount" class="form-control" />
+            <span asp-validation-for="InvestmentsAmount" class="text-danger"></span> <!-- Validation for InvestmentsAmount -->
+        </div>
+
+        <button type="submit" asp-page-handler="Save" class="btn btn-success mt-3">Save Budget</button>
+    </form>
+
+</div>

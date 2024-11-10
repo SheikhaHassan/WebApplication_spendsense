@@ -1,0 +1,60 @@
+﻿@page
+@model WebApplication_spendsense.Pages.reportModel
+
+<h2>Budget Allocations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Rent</td>
+            <td>@Model.RentAmount</td>
+        </tr>
+        <tr>
+            <td>Groceries</td>
+            <td>@Model.GroceriesAmount</td>
+        </tr>
+        <tr>
+            <td>Gas</td>
+            <td>@Model.GasAmount</td>
+        </tr>
+        <tr>
+            <td>Gym</td>
+            <td>@Model.GymAmount</td>
+        </tr>
+        <tr>
+            <td>Restaurant</td>
+            <td>@Model.RestaurantAmount</td>
+        </tr>
+        <tr>
+            <td>Travel</td>
+            <td>@Model.TravelAmount</td>
+        </tr>
+        <tr>
+            <td>Vacation</td>
+            <td>@Model.VacationAmount</td>
+        </tr>
+        <tr>
+            <td>Gift</td>
+            <td>@Model.GiftAmount</td>
+        </tr>
+        <tr>
+            <td>Savings</td>
+            <td>@Model.SavingsAmount</td>
+        </tr>
+        <tr>
+            <td>Investments</td>
+            <td>@Model.InvestmentsAmount</td>
+        </tr>
+    </tbody>
+</table>
+
+<form method="get" asp-page="/BudgetSetup">
+    <button type="submit" class="btn btn-primary">Budget Setup</button>
+</form>
+

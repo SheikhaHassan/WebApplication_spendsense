@@ -1,0 +1,102 @@
+﻿@page "/report"
+@inject WebApplication_spendsense.Model.ExpenseService ExpenseService
+@using WebApplication_spendsense.Model
+@inject NavigationManager NavigationManager
+
+
+
+<p>This is a Blazor component embedded in a Razor Pages app.</p>
+
+<div class="form-group">
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" class="form-control" @bind="SelectedCategory" @onchange="OnCategoryChange">
+        <option value="">All Categories</option>
+        @foreach (var category in Categories)
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+</div>
+
+<button class="btn btn-primary" @onclick="SortExpenses">Sort: @SortOrderText</button>
+
+@if (FilteredExpenses != null && FilteredExpenses.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Actual Expenses</th>
+                <th>Allocated Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in FilteredExpenses)
+            {
+                <tr>
+                    <td>@item.Category</td>
+                    <td>@item.ActualExpenses</td>
+                    <td>@item.AllocatedAmount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No expenses found matching the criteria.</p>
+}
+
+
+<div>
+    <button class="btn btn-secondary" @onclick="NavigateToOtherPage">Go to Other Page</button>
+    <button class="btn btn-danger" @onclick="Logout">Logout</button>
+</div>
+
+@code {
+
+    private List<ExpenseCategory> FilteredExpenses => ExpenseService.GetExpenses(SelectedCategory);
+    private List<string> Categories => ExpenseService.GetCategories();
+    private string SelectedCategory { get; set; }
+    private bool SortDescending { get; set; } = true;
+    private string SortOrderText => SortDescending ? "Highest to Lowest" : "Lowest to Highest";
+
+    // Method to handle category selection change
+    private void OnCategoryChange()
+    {
+        // Re-trigger the state change when category is selected
+        StateHasChanged();
+    }
+
+    // Sort expenses based on the selected order
+    private void SortExpenses()
+    {
+        try
+        {
+            var sortedExpenses = ExpenseService.SortExpenses(SortDescending);
+            FilteredExpenses.Clear();
+            FilteredExpenses.AddRange(sortedExpenses);
+            SortDescending = !SortDescending;
+        }
+        catch (Exception ex)
+        {
+            // Log or show error message to user
+            Console.WriteLine($"Error while sorting expenses: {ex.Message}");
+        }
+    }
+
+    // Navigate to other page
+    private void NavigateToOtherPage()
+    {
+        NavigationManager.NavigateTo("/privacy");
+    }
+
+    // Handle logout
+    private void Logout()
+    {
+        NavigationManager.NavigateTo("/index");
+    }
+    
+}
+} 
+

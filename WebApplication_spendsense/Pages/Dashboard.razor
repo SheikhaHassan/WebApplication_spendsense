@@ -1,0 +1,55 @@
+﻿
+@page "/dashboard"
+@inject NavigationManager Navigation
+
+<title>Dashboard</title>
+<main class="d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="row w-75">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Income</h5>
+                    <p class="card-text display-4">@totalIncome.ToString("N2") OMR</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Expenses</h5>
+                    <p class="card-text display-4">@totalExpenses.ToString("N2") OMR</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Remaining Budget</h5>
+                    <p class="card-text display-4">@remainingBudget.ToString("N2") OMR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="text-center mt-3">
+        <a href="/Budget" class="btn btn-primary">Budget Setup</a>
+        <!--   <button class="btn btn-primary" @onclick= NavigateToBudgetSetup>Budget Setup</button> -->
+    </div>
+</main>
+
+@code {
+    private decimal totalIncome = 0;
+    private decimal totalExpenses = 0;
+    private decimal remainingBudget => totalIncome - totalExpenses;
+
+    private void NavigateToBudgetSetup()
+    {
+        Navigation.NavigateTo("/");
+    }
+}
+
+

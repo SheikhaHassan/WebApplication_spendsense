@@ -1,0 +1,83 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.navbar-brand {
+
+    font-size: 40px;
+    color: white; /* Brand text color */
+    margin-left: 0px;
+}
+
+header {
+    background: linear-gradient(to right, rgb(82, 109, 130), rgb(39, 55, 77));
+}
+
+container {
+    background: linear-gradient(to right, rgb(82, 109, 130), rgb(39, 55, 77));
+
+}
+
+a {
+    color: #0077cc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+html, body {
+    height: 100%; /* Full height for the body */
+    margin: 0;
+}
+
+.main-content {
+    flex: 1; /* Let the content area grow and push footer down */
+}
+
+/* This assumes you have a footer class for your footer element */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa; /* Optional styling */
+    text-align: center;
+    background: linear-gradient(to right, rgb(82, 109, 130), rgb(39, 55, 77));
+}
+
+/* Ensure that the layout is displayed as flex */
+body {
+    display: flex;
+    flex-direction: column;
+}
+.footer a:hover {
+        text-decoration: underline;
+    }
+
+.footer-text {
+    font-size: 14px;
+}

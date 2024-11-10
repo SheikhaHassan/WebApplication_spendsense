@@ -1,0 +1,109 @@
+﻿/* Apply to the table for a clean, modern look */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .table th, .table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #dce0e9; /* Light border for the table cells */
+    }
+
+    .table th {
+        background-color: #27374D; /* Use the darkest color for header */
+        color: #ffffff;
+    }
+
+    .table td {
+        background-color: #DDE6ED; /* Light background for table cells */
+        color: #526D82;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #F8F9FA; /* Slightly lighter for odd rows */
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #FFFFFF; /* Even rows with a white background */
+    }
+
+    .table tbody tr:hover {
+        background-color: #9DB2BF; /* Slight highlight on hover */
+        color: white;
+    }
+
+/* Style for the filter dropdown */
+#categoryFilter {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #526D82;
+    border-radius: 4px;
+    background-color: #DDE6ED;
+    color: #27374D;
+}
+
+/* Button styling */
+.btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #526D82; /* Primary button color */
+    border: none;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #27374D;
+    }
+
+.btn-secondary {
+    background-color: #9DB2BF; /* Secondary button color */
+    border: none;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background-color: #526D82;
+    }
+
+.btn-danger {
+    background-color: #D73B3E; /* Red color for logout button */
+    border: none;
+    color: white;
+}
+
+    .btn-danger:hover {
+        background-color: #9DB2BF;
+    }
+
+/* Apply some padding and margin to the form-group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .table th, .table td {
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    #categoryFilter {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
