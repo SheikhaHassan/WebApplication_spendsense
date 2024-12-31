@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Search User";
+}
+
+<h1>Search User</h1>
+
+<form asp-action="SearchUser" method="post">
+    <div class="form-group">
+        <label for="searchTerm">Search by Name, Username, or Email</label>
+        <input type="text" name="searchTerm" id="searchTerm" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">
+        @ViewBag.Message
+    </div>
+} 

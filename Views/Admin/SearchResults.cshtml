@@ -1,0 +1,43 @@
+﻿@model List<budgetManagement.Models.User>
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h1>Search Results</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning">
+        <p>No users found.</p>
+    </div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Username</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>
+                        <a asp-action="EditUser" asp-route-UserId="@user.UserId" class="btn btn-primary">Update</a>
+                        <a asp-action="DeleteUser" asp-route-UserId="@user.UserId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

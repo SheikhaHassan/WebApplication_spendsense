@@ -1,0 +1,62 @@
+﻿@model budgetManagement.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/css/login.css")" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="login-container d-flex align-items-center justify-content-center">
+        <div class="login-box">
+            <div class="text-center mb-4">
+                <img src="@Url.Content("~/logo.png")" alt="Logo" class="logo">
+                <h3 class="login-title">Account Login</h3>
+            </div>
+            <form asp-controller="Home" asp-action="Login" method="post">
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                }
+
+                <!-- Username/Email Input -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input asp-for="Username" class="form-control" placeholder="Username or Email" required />
+                </div>
+
+                <!-- Password Input -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" required />
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+
+                <div class="text-center mt-3">
+                    <p>Don't have an account? 
+                        <a style="color: rgb(192, 209, 219);" asp-controller="Home" asp-action="SignUp">Sign Up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+</body>
+</html>

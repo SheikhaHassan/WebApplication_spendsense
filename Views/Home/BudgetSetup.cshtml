@@ -1,0 +1,40 @@
+﻿@model Budget
+
+@{
+    ViewData["Title"] = "Budget Setup";
+}
+
+<h1>Budget Setup</h1>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="TotalIncome">Total Income</label>
+        <input type="number" class="form-control" id="TotalIncome" name="TotalIncome" value="@Model.TotalIncome" required />
+    </div>
+
+    <div class="form-group">
+        <label for="NeedsAllocation">Needs Allocation (50%)</label>
+        <input type="number" class="form-control" id="NeedsAllocation" value="@ViewBag.NeedsAllocation" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="WantsAllocation">Wants Allocation (30%)</label>
+        <input type="number" class="form-control" id="WantsAllocation" value="@ViewBag.WantsAllocation" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="SavingsAllocation">Savings Allocation (20%)</label>
+        <input type="number" class="form-control" id="SavingsAllocation" value="@ViewBag.SavingsAllocation" disabled />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<a href="@Url.Action("Dashboard", "Home")" class="btn btn-secondary mt-3">Go to Dashboard</a>

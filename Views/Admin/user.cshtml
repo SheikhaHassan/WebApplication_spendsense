@@ -1,0 +1,63 @@
+﻿@model IEnumerable<budgetManagement.Models.User>
+
+@{
+    ViewData["Title"] = "user";
+}
+
+<h1>User</h1>
+
+<p>
+    <a style="color: rgb(192, 209, 219);" asp-action="AddUser">Add User</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                    <a style="color: rgb(192, 209, 219);" asp-action="EditUser" asp-route-UserId="@item.UserId">Update User</a> |
+                    <a style="color: rgb(192, 209, 219);" asp-action="DeleteUser" asp-route-UserId="@item.UserId">Delete User</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<div class="mt-3">
+    <a class="btn btn-primary" asp-action="SearchUser">Search User</a>
+</div>
